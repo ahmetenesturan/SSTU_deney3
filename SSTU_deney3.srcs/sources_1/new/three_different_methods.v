@@ -44,3 +44,60 @@ module with_SSI(input a,
     
                 
 endmodule
+
+
+
+
+module with_MUX(input a,
+                input b,
+                input c,
+                input d,
+                output f3,
+                output f2,
+                output f1,
+                output f0);
+                
+    //f0 = BD
+    wire f0_0;
+    and_gate and_f0_0(b,d,f0_0);
+    MUX mux_0(.D({f0_0, f0_0, f0_0, f0_0}), .S({a,c}), .O(f0));
+    
+    //f1  = A'BC + BCD' + AB'D + AC'D
+    //00 -> 0
+    //01 -> B + BD' = B
+    //10 -> B'D + D = D
+    //11 -> BD' + B'D = B ^ D
+    
+    wire f1_0;
+    wire f1_1;
+    wire f1_2;
+    wire f1_3;
+    
+    assign f1_0 = 0;
+    assign f1_1 = b;
+    assign f1_2 = d;
+    xor_gate xor_f1_0(b,d,f1_3);
+    
+    MUX mux_1(.D({f1_0, f1_1, f1_2, f1_3}), .S({a,c}), .O(f1));
+    
+    
+    //f2 = AB'C + ACD'
+    //00 -> 0
+    //01 -> 0
+    //10 -> 0
+    //11 -> B' + D' = 1 ^ BD
+    wire f2_0;
+    wire f2_1;
+    and_gate and_f2_0(b,d,f2_0);
+    xor_gate xor_f2_0(1,w,f2_1);
+    
+    MUX mux_2(.D({0, 0, 0, f2_1}), .S({a,c}), .O(f2));
+    
+    //f3 = ABCD
+    //11 -> BD
+    //else -> 0 
+    wire f3_0;
+    and_gate and_f3_0(b,d,f3_0);
+    MUX mux_3(.D({0, 0, 0, f3_0}), .S({a,c}), .O(f3));
+            
+endmodule

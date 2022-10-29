@@ -61,33 +61,33 @@ endmodule
 
 module MUX(input [3:0] D,
         input  [1:0] S,
-        //output wire O); //for assign and logic operators
-        output reg O); //for always and case
+        output wire O); //for assign and logic operators
+        //output reg O); //for always and case
         
         //assign and logic operators
         
-//        wire [3:0] enables;
+        wire [3:0] enables;
         
-//        assign enables[0] = ~S[1] & ~S[0];
-//        assign enables[1] = ~S[1] & S[0];
-//        assign enables[2] = S[1] & ~S[0];
-//        assign enables[3] = S[1] & S[0];
+        assign enables[0] = ~S[1] & ~S[0];
+        assign enables[1] = ~S[1] & S[0];
+        assign enables[2] = S[1] & ~S[0];
+        assign enables[3] = S[1] & S[0];
         
-//        assign O = (D[3] & enables[3]) | (D[2] & enables[2]) | (D[1] & enables[1]) | (D[0] & enables[0]);
+        assign O = (D[3] & enables[3]) | (D[2] & enables[2]) | (D[1] & enables[1]) | (D[0] & enables[0]);
         
         
         //always and case
 
         
-        always @(D or S) begin
+//        always @(D or S) begin
 
-            case(S)
-                2'b00: O <= D[0];
-                2'b01: O <= D[1];
-                2'b10: O <= D[2];
-                2'b11: O <= D[3];
-            endcase
-        end
+//            case(S)
+//                2'b00: O <= D[0];
+//                2'b01: O <= D[1];
+//                2'b10: O <= D[2];
+//                2'b11: O <= D[3];
+//            endcase
+//        end
         
 endmodule
 
