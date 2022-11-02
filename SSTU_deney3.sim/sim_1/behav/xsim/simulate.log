@@ -1,0 +1,19 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+{a,b,c,d}=0000 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=0001 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=0010 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=0011 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=0100 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=0101 => {f3,f2,f1,f0} = 0001 -- TRUE
+{a,b,c,d}=0110 => {f3,f2,f1,f0} = 0010 -- TRUE
+{a,b,c,d}=0111 => {f3,f2,f1,f0} = 0011 -- TRUE
+{a,b,c,d}=1000 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=1001 => {f3,f2,f1,f0} = 0010 -- TRUE
+{a,b,c,d}=1010 => {f3,f2,f1,f0} = 0100 -- TRUE
+{a,b,c,d}=1011 => {f3,f2,f1,f0} = 0110 -- TRUE
+{a,b,c,d}=1100 => {f3,f2,f1,f0} = 0000 -- TRUE
+{a,b,c,d}=1101 => {f3,f2,f1,f0} = 0011 -- TRUE
+{a,b,c,d}=1110 => {f3,f2,f1,f0} = 0110 -- TRUE
+{a,b,c,d}=1111 => {f3,f2,f1,f0} = 1001 -- TRUE
+$finish called at time : 800 ns : File "C:/Users/ahmet/Projects/Vivado/sstu/SSTU_deney3/SSTU_deney3.srcs/sim_1/imports/verilen_dosyalar/experiment3_tb.v" Line 52
